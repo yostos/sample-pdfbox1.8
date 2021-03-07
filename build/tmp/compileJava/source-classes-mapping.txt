@@ -1,0 +1,2 @@
+org/yostos/pdfboxtest/FontTest.java
+ org.yostos.pdfboxtest.FontTest

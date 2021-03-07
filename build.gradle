@@ -1,0 +1,36 @@
+
+plugins {
+     id 'checkstyle'
+        // Apply the java plugin to add support for Java
+        id 'java'
+
+        // Apply the application plugin to add support for building an application
+        id 'application'
+}
+
+def checkstyleVersion = '8.10.1'
+checkstyle {
+    configFile = file('checkstyle.xml')
+        toolVersion = checkstyleVersion
+        ignoreFailures = false
+}
+compileJava{
+    options.deprecation = true
+}
+// Define the main class for the application
+mainClassName = 'org.yostos.pdfboxtest.FontTest'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox
+    implementation group: 'org.apache.pdfbox', name: 'pdfbox', version: '1.8.16'
+    // https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox
+    //implementation group: 'org.apache.pdfbox', name: 'pdfbox', version: '2.0.22'
+    // https://mvnrepository.com/artifact/org.apache.pdfbox/fontbox
+    //implementation group: 'org.apache.pdfbox', name: 'fontbox', version: '2.0.22'
+}
+
